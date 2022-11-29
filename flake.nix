@@ -1,6 +1,6 @@
 
 {
-  description = "Aaaaaaaaaa";
+  description = "A set of tools to flash an annepro2 keyboard with custom firmware.";
 
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
