@@ -13,11 +13,11 @@
         pkgs = import nixpkgs {
           system = system;
         };
-        agg = pkgs.callPackage ./annepro2-tools.nix {};
+        annepro2tools = pkgs.callPackage ./annepro2-tools.nix {};
       in
       {
-        defaultPackage = agg;
-        packages = agg;
+        defaultPackage = annepro2tools;
+        packages = annepro2tools;
       }
     );
   
