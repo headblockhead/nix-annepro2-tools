@@ -1,4 +1,3 @@
-
 {
   description = "A set of tools to flash an annepro2 keyboard with custom firmware.";
   outputs = { self, nixpkgs, flake-utils }:
@@ -9,7 +8,7 @@
         annepro2tools = pkgs.callPackage ./annepro2-tools.nix {};
       in
       {
-        defaultPackage = annepro2tools;
-        packages = annepro2tools;
-      }
+        packages.x86_64-linux.default = annepro2tools;
+        defaultPackage.x86_64-linux = annepro2tools;
+      };
 }
