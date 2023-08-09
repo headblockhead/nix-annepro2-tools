@@ -5,3 +5,5 @@ Simply run
 ```nix shell github:headblockhead/nix-annepro2-tools --no-sandbox```
 
 `--no-sandbox` is required to download cargo packages for building.
+
+Run using `annepro2-tools`.
