@@ -1,7 +1,7 @@
 { pkgs, stdenv, fetchFromGitHub, autoPatchelfHook }:
 
 let
-  version = "fe5ed6585b0af274e3220d5abe49ee419c34924a";
+  version = "aa84bd1d34c961ada8c812dfea524592f7d2be2c";
 in
 stdenv.mkDerivation {
   pname = "annepro2-tools";
@@ -11,7 +11,7 @@ stdenv.mkDerivation {
     owner = "OpenAnnePro";
     repo = "AnnePro2-Tools";
     rev = version;
-    sha256="Oy5acTuE0Oz5CdFXDkwFrtoHEFC3B/lQR/4kjlqcibE=";
+    sha256="Bwzxhh4HUDOB+yvtQa0tdPgtVzgdQnrQKeHzObP5ctA=";
   };
 
   nativeBuildInputs = [ autoPatchelfHook ];
