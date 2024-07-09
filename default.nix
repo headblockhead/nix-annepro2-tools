@@ -11,11 +11,21 @@ stdenv.mkDerivation rec {
     hash = "sha256-Bwzxhh4HUDOB+yvtQa0tdPgtVzgdQnrQKeHzObP5ctA=";
   };
 
-  buildInputs = [ pkgs.cacert pkgs.libusb1 pkgs.cargo pkgs.rustc pkgs.pkgconfig ];
+  buildInputs = [
+    pkgs.cacert
+    pkgs.libusb1
+    pkgs.cargo
+    pkgs.rustc
+    pkgs.pkgconfig
+  ] ++ lib.optional stdenv.isDarwin [ pkgs.darwin.apple_sdk.frameworks.AppKit pkgs.libiconv ];
 
   installPhase = ''
     # Create the standard environment.
     source $stdenv/setup
+
+    # fix `failed to open: /homeless-shelter/.cargo/.package-cache`
+    # cargo needs $HOME writable
+    export HOME=$TEMPDIR 
 
     cp -r $src/* ./
     cargo build --release
