@@ -1,20 +1,15 @@
-{ pkgs, stdenv, fetchFromGitHub, autoPatchelfHook }:
+{ pkgs, stdenv, lib, fetchFromGitHub, }:
 
-let
-  version = "aa84bd1d34c961ada8c812dfea524592f7d2be2c";
-in
-stdenv.mkDerivation {
+stdenv.mkDerivation rec {
   pname = "annepro2-tools";
-  version = version;
+  version = "aa84bd1d34c961ada8c812dfea524592f7d2be2c";
 
   src = fetchFromGitHub {
     owner = "OpenAnnePro";
     repo = "AnnePro2-Tools";
     rev = version;
-    sha256 = "Bwzxhh4HUDOB+yvtQa0tdPgtVzgdQnrQKeHzObP5ctA=";
+    hash = "sha256-Bwzxhh4HUDOB+yvtQa0tdPgtVzgdQnrQKeHzObP5ctA=";
   };
-
-  nativeBuildInputs = [ autoPatchelfHook ];
 
   buildInputs = [ pkgs.cacert pkgs.libusb1 pkgs.cargo pkgs.rustc pkgs.pkgconfig ];
 
