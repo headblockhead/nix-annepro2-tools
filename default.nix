@@ -11,7 +11,13 @@ stdenv.mkDerivation rec {
     hash = "sha256-Bwzxhh4HUDOB+yvtQa0tdPgtVzgdQnrQKeHzObP5ctA=";
   };
 
-  buildInputs = [ pkgs.cacert pkgs.libusb1 pkgs.cargo pkgs.rustc pkgs.pkgconfig ];
+  buildInputs = [
+    pkgs.cacert
+    pkgs.libusb1
+    pkgs.cargo
+    pkgs.rustc
+    pkgs.pkgconfig
+  ] ++ lib.optional stdenv.isDarwin [ pkgs.darwin.apple_sdk.frameworks.AppKit pkgs.libiconv ];
 
   installPhase = ''
     # Create the standard environment.
